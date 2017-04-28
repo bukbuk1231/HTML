@@ -1,0 +1,195 @@
+Script started on Sun 11 Oct 2015 10:31:25 PM PDT
+]0;lou@garrison:~/cs140/project[01;32mlou@garrison[01;34m ~/cs140/project $[00m pwe[Kd
+/user/lou/cs140/project
+]0;lou@garrison:~/cs140/project[01;32mlou@garrison[01;34m ~/cs140/project $[00m ls -l
+total 13
+-rw------- 1 lou cpp 1003 Oct  4 13:03 Pay.class
+-rw-r--r-- 1 lou cpp  968 Oct  4 13:00 Pay.java
+-rw------- 1 lou cpp 1049 Oct 11 22:31 TimeConversionToHMS.class
+-rw------- 1 lou cpp  647 Oct 11 22:30 TimeConversionToHMS.java
+-rw------- 1 lou cpp 1216 Oct 11 22:25 TimeConversionToSecond.class
+-rw------- 1 lou cpp  830 Oct 11 22:00 TimeConversionToSecond.java
+-rw------- 1 lou cpp 2297 Oct  4 13:04 [0m[00;32mpj1.txt[0m
+-rw------- 1 lou cpp    0 Oct 11 22:31 [00;32mpj2.txt[0m
+]0;lou@garrison:~/cs140/project[01;32mlou@garrison[01;34m ~/cs140/project $[00m cat TimeConversionToSecond.ava[K[K[Kjava
+//Junda Lou
+//CS140, section 01
+//Project 2 - Time Conversion
+//10.11.2015
+
+import java.util.Scanner;
+public class TimeConversionToSecond
+{
+	public static void main(String[] args)
+	{
+		int hours, minutes, seconds, total;
+		Scanner keyboard = new Scanner(System.in);
+
+		System.out.print("enter number of hours:");
+		hours = keyboard.nextInt();
+		System.out.print("enter number of minutes:");
+		minutes = keyboard.nextInt();
+		System.out.print("enter number of seconds:");
+		seconds = keyboard.nextInt();
+
+		total = hours*3600 + minutes*60 + seconds;
+
+		System.out.println("enter hours:" + hours);
+		System.out.println("enter minutes:" + minutes);
+		System.out.println("enter seconds:" + seconds);
+System.out.println(hours + " hours, " + minutes + " minutes, " + seconds + " seconds is equivalent to " + total + " seconds.");
+	}
+}
+
+]0;lou@garrison:~/cs140/project[01;32mlou@garrison[01;34m ~/cs140/project $[00m javac TimeConversionToSecond.java
+]0;lou@garrison:~/cs140/project[01;32mlou@garrison[01;34m ~/cs140/project $[00m java TimeConversionToSecond
+enter number of hours:0
+enter number of minutes:0
+enter number of seconds:0
+enter hours:0
+enter minutes:0
+enter seconds:0
+0 hours, 0 minutes, 0 seconds is equivalent to 0 seconds.
+]0;lou@garrison:~/cs140/project[01;32mlou@garrison[01;34m ~/cs140/project $[00m java TimeConversion [KToSecond
+enter number of hours:0
+enter number of minutes:1
+enter number of seconds:2
+enter hours:0
+enter minutes:1
+enter seconds:2
+0 hours, 1 minutes, 2 seconds is equivalent to 62 seconds.
+]0;lou@garrison:~/cs140/project[01;32mlou@garrison[01;34m ~/cs140/project $[00m java Co[K[KTimeConversionToSecond
+enter number of hours:3
+enter number of minutes:0
+enter number of seconds:4
+enter hours:3
+enter minutes:0
+enter seconds:4
+3 hours, 0 minutes, 4 seconds is equivalent to 10804 seconds.
+]0;lou@garrison:~/cs140/project[01;32mlou@garrison[01;34m ~/cs140/project $[00m java TimeConversionTO[KoSecond
+enter number of hours:5
+enter number of minutes:6
+enter number of seconds:0
+enter hours:5
+enter minutes:6
+enter seconds:0
+5 hours, 6 minutes, 0 seconds is equivalent to 18360 seconds.
+]0;lou@garrison:~/cs140/project[01;32mlou@garrison[01;34m ~/cs140/project $[00m java TimeConversionToSecond
+enter number of hours:0
+enter number of minutes:0
+enter number of seconds:25
+enter hours:0
+enter minutes:0
+enter seconds:25
+0 hours, 0 minutes, 25 seconds is equivalent to 25 seconds.
+]0;lou@garrison:~/cs140/project[01;32mlou@garrison[01;34m ~/cs140/project $[00m java TimeConversionToSeconds[K
+enter number of hours:0
+enter number of minutes:25
+enter number of seconds:0
+enter hours:0
+enter minutes:25
+enter seconds:0
+0 hours, 25 minutes, 0 seconds is equivalent to 1500 seconds.
+]0;lou@garrison:~/cs140/project[01;32mlou@garrison[01;34m ~/cs140/project $[00m java TimeConversionToSecond
+enter number of hours:25
+enter number of minutes:0
+enter number of seconds:0
+enter hours:25
+enter minutes:0
+enter seconds:0
+25 hours, 0 minutes, 0 seconds is equivalent to 90000 seconds.
+]0;lou@garrison:~/cs140/project[01;32mlou@garrison[01;34m ~/cs140/project $[00m java TimeConversionToSecond
+enter number of hours:1
+enter number of minutes:28
+enter number of seconds:42
+enter hours:1
+enter minutes:28
+enter seconds:42
+1 hours, 28 minutes, 42 seconds is equivalent to 5322 seconds.
+]0;lou@garrison:~/cs140/project[01;32mlou@garrison[01;34m ~/cs140/project $[00m java TimeConversionToSecond
+enter number of hours:2
+enter number of minutes:46
+enter number of seconds:39
+enter hours:2
+enter minutes:46
+enter seconds:39
+2 hours, 46 minutes, 39 seconds is equivalent to 9999 seconds.
+]0;lou@garrison:~/cs140/project[01;32mlou@garrison[01;34m ~/cs140/project $[00m java TimeConversionTO[KoSecond
+enter number of hours:100
+enter number of minutes:10
+enter number of seconds:1
+enter hours:100
+enter minutes:10
+enter seconds:1
+100 hours, 10 minutes, 1 seconds is equivalent to 360601 seconds.
+]0;lou@garrison:~/cs140/project[01;32mlou@garrison[01;34m ~/cs140/project $[00m cat TimeConversionToHMS.java
+//Junda Lou
+//CS140, section 01
+//project 2 - Time Conversion
+//10.11.2015
+
+import java.util.Scanner;
+public class TimeConversionToHMS
+{
+	public static void main(String[] args)
+	{
+		int total, hours, minutes, seconds;
+		Scanner keyboard = new Scanner(System.in);
+
+		System.out.print("enter number of total second:");
+		total = keyboard.nextInt();
+
+		hours = total/3600;
+		minutes = (total - hours * 3600) / 60;
+		seconds = total - hours * 3600 - minutes * 60;
+System.out.println("enter total seconds: " + total);
+System.out.println(total + " seconds is equivalent to " + hours + " hours, " + minutes + " minutes, " + seconds + " seconds.");
+
+	}
+}
+]0;lou@garrison:~/cs140/project[01;32mlou@garrison[01;34m ~/cs140/project $[00m javac TimeConversionToHMS.java
+]0;lou@garrison:~/cs140/project[01;32mlou@garrison[01;34m ~/cs140/project $[00m java TimeConversion [KTO[KoHMS
+enter number of total second:0
+enter total seconds: 0
+0 seconds is equivalent to 0 hours, 0 minutes, 0 seconds.
+]0;lou@garrison:~/cs140/project[01;32mlou@garrison[01;34m ~/cs140/project $[00m java TIme[K[K[KimeConversionToHMS
+enter number of total second:35
+enter total seconds: 35
+35 seconds is equivalent to 0 hours, 0 minutes, 35 seconds.
+]0;lou@garrison:~/cs140/project[01;32mlou@garrison[01;34m ~/cs140/project $[00m java TimeConversionToHMS
+enter number of total second:5 60
+enter total seconds: 60
+60 seconds is equivalent to 0 hours, 1 minutes, 0 seconds.
+]0;lou@garrison:~/cs140/project[01;32mlou@garrison[01;34m ~/cs140/project $[00m java TimeConversionToHMS [K
+enter number of total second:
+123
+enter total seconds: 123
+123 seconds is equivalent to 0 hours, 2 minutes, 3 seconds.
+]0;lou@garrison:~/cs140/project[01;32mlou@garrison[01;34m ~/cs140/project $[00m J[Kjava TimeConversionTO[KoHMS
+enter number of total second:3600
+enter total seconds: 3600
+3600 seconds is equivalent to 1 hours, 0 minutes, 0 seconds.
+]0;lou@garrison:~/cs140/project[01;32mlou@garrison[01;34m ~/cs140/project $[00m java TIme[K[K[KimeConversionto[K[KToHMS 3[K[K
+enter number of total second:3661
+enter total seconds: 3661
+3661 seconds is equivalent to 1 hours, 1 minutes, 1 seconds.
+]0;lou@garrison:~/cs140/project[01;32mlou@garrison[01;34m ~/cs140/project $[00m java TimeConversionToHMS
+enter number of total second:5322
+enter total seconds: 5322
+5322 seconds is equivalent to 1 hours, 28 minutes, 42 seconds.
+]0;lou@garrison:~/cs140/project[01;32mlou@garrison[01;34m ~/cs140/project $[00m java TimeConversionToHMS
+enter number of total second:9999
+enter total seconds: 9999
+9999 seconds is equivalent to 2 hours, 46 minutes, 39 seconds.
+]0;lou@garrison:~/cs140/project[01;32mlou@garrison[01;34m ~/cs140/project $[00m java TimeCOnv[K[K[KonversionToHMS [K
+enter number of total second:102030
+enter total seconds: 102030
+102030 seconds is equivalent to 28 hours, 20 minutes, 30 seconds.
+]0;lou@garrison:~/cs140/project[01;32mlou@garrison[01;34m ~/cs140/project $[00m java TimeConversionToHMS [K
+enter number of total second:123456789
+enter total seconds: 123456789
+123456789 seconds is equivalent to 34293 hours, 33 minutes, 9 seconds.
+]0;lou@garrison:~/cs140/project[01;32mlou@garrison[01;34m ~/cs140/project $[00m exit
+exit
+
+Script done on Sun 11 Oct 2015 10:41:34 PM PDT

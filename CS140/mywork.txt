@@ -1,0 +1,12 @@
+Script started on Tue 29 Sep 2015 10:59:42 AM PDT
+]0;lou@fluffy:~[01;32mlou@fluffy[01;34m ~ $[00m ls
+[0m[00;32manimals.txt[0m  [01;34mfoo[0m  [00;32mmywork.txt[0m  test.dat
+]0;lou@fluffy:~[01;32mlou@fluffy[01;34m ~ $[00m cat animals.txt
+Kangaroo
+Mouse
+etc
+^d
+]0;lou@fluffy:~[01;32mlou@fluffy[01;34m ~ $[00m exti[K[Kit
+exit
+
+Script done on Tue 29 Sep 2015 11:00:25 AM PDT

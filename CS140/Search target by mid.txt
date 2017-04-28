@@ -1,0 +1,15 @@
+public static int binarySeach(int[] a, int target)
+{
+   int mid;
+   int first = 0, last = a.length - 1;
+   while (first<=last)
+   {
+      mid = (first + last)/2;
+      if (target == a[mid])
+      return mid;
+      if (target < a[mid])
+      last = mid - 1;
+      else first = mid + 1
+   }
+   return -1
+}

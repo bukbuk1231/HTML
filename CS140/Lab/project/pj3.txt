@@ -1,0 +1,345 @@
+Script started on Wed 21 Oct 2015 04:15:23 PM PDT
+]0;lou@garrison:~/cs140/project[01;32mlou@garrison[01;34m ~/cs140/project $[00m pwd
+/user/lou/cs140/project
+]0;lou@garrison:~/cs140/project[01;32mlou@garrison[01;34m ~/cs140/project $[00m ls -l
+total 33
+-rw------- 1 lou cpp  923 Oct 17 13:51 Bill
+-rw------- 1 lou cpp 3419 Oct 21 16:08 Bill.class
+-rw-r--r-- 1 lou cpp 3807 Oct 21 16:12 Bill.java
+-rw------- 1 lou cpp 1003 Oct  4 13:03 Pay.class
+-rw-r--r-- 1 lou cpp  968 Oct  4 13:00 Pay.java
+-rw------- 1 lou cpp 1049 Oct 11 22:36 TimeConversionToHMS.class
+-rw------- 1 lou cpp  647 Oct 11 22:30 TimeConversionToHMS.java
+-rw------- 1 lou cpp 1216 Oct 11 22:32 TimeConversionToSecond.class
+-rw------- 1 lou cpp  830 Oct 11 22:00 TimeConversionToSecond.java
+-rw------- 1 lou cpp 2297 Oct  4 13:04 [0m[00;32mpj1.txt[0m
+-rw------- 1 lou cpp 8487 Oct 11 22:41 [00;32mpj2.txt[0m
+-rw------- 1 lou cpp    0 Oct 21 16:15 [00;32mpj3.txt[0m
+]0;lou@garrison:~/cs140/project[01;32mlou@garrison[01;34m ~/cs140/project $[00m cat Bill.java
+//Junda Lou
+//CS140, section 01
+//Project 3 - Bill Statement
+//10.17.2015
+
+import java.util.Scanner;
+
+public class Bill
+{
+   public static void main(String[] argrs)
+   {
+      Scanner kb = new Scanner(System.in);
+      int quan1, quan2, quan3;
+      double price1, price2, price3;
+      String item1, item2, item3;
+      final double TAX = 0.0875;
+      System.out.print("enter the name of item 1: ");
+      item1 = kb.nextLine();
+      System.out.print("enter the quantity of item 1: ");
+      quan1 = kb.nextInt();
+      if (quan1 < 0 || quan1 > 1000)
+      {
+         System.out.print("Invalid quantity, please enter quantity between 0 and 1,000");
+         System.exit(0);
+      }
+      System.out.print("enter the price of item 1: ");
+      price1 = kb.nextDouble();
+      if (price1 < 0.0 || price1 > 10000.0)
+      {
+         System.out.println("Invalid price, please enter price between 0.0 and 10,000.0");
+         System.exit(0);
+      }
+            
+      System.out.print("enter the name of item 2: ");
+      kb.nextLine();
+      item2 = kb.nextLine();
+      System.out.print("enter the quantity of item 2: ");
+      quan2 = kb.nextInt();
+      if (quan2 < 0 || quan2 > 1000)
+      {
+         System.out.print("Invalid quantity, please enter quantity between 0 and 1,000");
+         System.exit(0);
+      }
+      System.out.print("enter the price of item 2: ");
+      price2 = kb.nextDouble();
+      if (price2 < 0.0 || price2 > 10000.0)
+      {
+         System.out.println("Invalid price, please enter price 3between 0.0 and 10,000.0");
+         System.exit(0);
+      }
+
+      System.out.print("enter the name of item 3: ");
+      kb.nextLine();
+      item3 = kb.nextLine();
+      System.out.print("enter the quantity of item 3: ");
+      quan3 = kb.nextInt();
+      if (quan3 < 0 || quan3 > 1000)
+      {
+         System.out.print("Invalid quantity, please enter quantity between 0 and 1,000");
+         System.exit(0);
+      }
+      System.out.print("enter the price of item 3: ");
+      price3 = kb.nextDouble();
+      if (price3 < 0.0 || price3 > 10000.0)
+      {
+         System.out.println("Invalid price, please enter price between 0.0 and 10,000.0");
+         System.exit(0);
+      }
+      double total1 = price1 * quan1;
+      double total2 = price2 * quan2;
+      double total3 = price3 * quan3;
+      double subTotal = total1 + total2 + total3;
+      double saleTax = subTotal * 0.0875;
+      double totalAll = subTotal + saleTax;  
+
+      System.out.println("Input name of item 1: " + item1);
+      System.out.println("Input quantity of item 1: " + quan1);
+      System.out.println("Input price of item 1: " + price1);
+      System.out.println();
+      System.out.println("Input name of item 2: " + item2);
+      System.out.println("Input quantity of item 2: " + quan2);
+      System.out.println("Input price of item 2: " + price2);
+      System.out.println();
+      System.out.println("Input name of item 3: " + item3);
+      System.out.println("Input quantity of item 3: " + quan3);
+      System.out.println("Input price of item 3: " + price3);
+      System.out.println();
+      System.out.println("Your bill:");
+      System.out.println();
+      System.out.println("Item                            Quantity     Price          Total");
+      System.out.println("----                            --------     -----          -----");
+      System.out.printf("%-30s %9d %9.2f %,14.2f\n",item1,quan1,price1,total1);
+      System.out.printf("%-30s %9d %9.2f %,14.2f\n",item2,quan2,price2,total2);
+      System.out.printf("%-30s %9d %9.2f %,14.2f\n",item3,quan3,price3,total3);
+      System.out.println();
+      System.out.printf("SubTotal %,56.2f\n", subTotal);
+      System.out.printf("8.75%% sales tax %,49.2f\n", saleTax);
+      System.out.printf("Total %,59.2f\n",totalAll);
+   }
+}
+]0;lou@garrison:~/cs140/project[01;32mlou@garrison[01;34m ~/cs140/project $[00m javac Bill.java
+]0;lou@garrison:~/cs140/project[01;32mlou@garrison[01;34m ~/cs140/project $[00m java Bill
+enter the name of item 1: ipad
+enter the quantity of item 1: 10
+enter the price of item 1: 0.50
+enter the name of item 2: iphone
+enter the quantity of item 2: 3
+enter the price of item 2: 1.25
+enter the name of item 3: ipod
+enter the quantity of item 3: 20
+enter the price of item 3: 0.75
+Input name of item 1: ipad
+Input quantity of item 1: 10
+Input price of item 1: 0.5
+
+Input name of item 2: iphone
+Input quantity of item 2: 3
+Input price of item 2: 1.25
+
+Input name of item 3: ipod
+Input quantity of item 3: 20
+Input price of item 3: 0.75
+
+Your bill:
+
+Item                            Quantity     Price          Total
+----                            --------     -----          -----
+ipad                                  10      0.50           5.00
+iphone                                 3      1.25           3.75
+ipod                                  20      0.75          15.00
+
+SubTotal                                                    23.75
+8.75% sales tax                                              2.08
+Total                                                       25.83
+]0;lou@garrison:~/cs140/project[01;32mlou@garrison[01;34m ~/cs140/project $[00m java Bill
+enter the name of item 1: ipad
+enter the quantity of item 1: 100
+enter the price of item 1: 123,45   .45
+enter the name of item 2: ipa hone
+enter the quantity of item 2: 200
+enter the price of item 2: 67.89
+enter the name of item 3: io pod
+enter the quantity of item 3: 300
+enter the price of item 3: 0.99
+Input name of item 1: ipad
+Input quantity of item 1: 100
+Input price of item 1: 123.45
+
+Input name of item 2: iphone
+Input quantity of item 2: 200
+Input price of item 2: 67.89
+
+Input name of item 3: ipod
+Input quantity of item 3: 300
+Input price of item 3: 0.99
+
+Your bill:
+
+Item                            Quantity     Price          Total
+----                            --------     -----          -----
+ipad                                 100    123.45      12,345.00
+iphone                               200     67.89      13,578.00
+ipod                                 300      0.99         297.00
+
+SubTotal                                                26,220.00
+8.75% sales tax                                          2,294.25
+Total                                                   28,514.25
+]0;lou@garrison:~/cs140/project[01;32mlou@garrison[01;34m ~/cs140/project $[00m ja[Kava Bill
+enter the name of item 1: ipad
+enter the quantity of item 1: 0
+enter the price of item 1: 0
+enter the name of item 2: iphone
+enter the quantity of item 2: 0
+enter the price of item 2: 10000
+enter the name of item 3: itoc   pod
+enter the quantity of item 3: 1
+enter the price of item 3: 0.0
+Input name of item 1: ipad
+Input quantity of item 1: 0
+Input price of item 1: 0.0
+
+Input name of item 2: iphone
+Input quantity of item 2: 0
+Input price of item 2: 10000.0
+
+Input name of item 3: ipod
+Input quantity of item 3: 1
+Input price of item 3: 0.0
+
+Your bill:
+
+Item                            Quantity     Price          Total
+----                            --------     -----          -----
+ipad                                   0      0.00           0.00
+iphone                                 0  10000.00           0.00
+ipod                                   1      0.00           0.00
+
+SubTotal                                                     0.00
+8.75% sales tax                                              0.00
+Total                                                        0.00
+]0;lou@garrison:~/cs140/project[01;32mlou@garrison[01;34m ~/cs140/project $[00m java Bill
+enter the name of item 1: ipad air
+enter the quantity of item 1: 1
+enter the price of item 1: 9999/99   .99
+enter the name of item 2: iphone6s 
+enter the quantity of item 2: 1
+enter the price of item 2: 10000
+enter the name of item 3: itoch    pdo  od  5
+enter the quantity of item 3: 999
+enter the price of item 3: 0.0
+Input name of item 1: ipad air
+Input quantity of item 1: 1
+Input price of item 1: 9999.99
+
+Input name of item 2: iphone6
+Input quantity of item 2: 1
+Input price of item 2: 10000.0
+
+Input name of item 3: ipod5
+Input quantity of item 3: 999
+Input price of item 3: 0.0
+
+Your bill:
+
+Item                            Quantity     Price          Total
+----                            --------     -----          -----
+ipad air                               1   9999.99       9,999.99
+iphone6                                1  10000.00      10,000.00
+ipod5                                999      0.00           0.00
+
+SubTotal                                                19,999.99
+8.75% sales tax                                          1,750.00
+Total                                                   21,749.99
+]0;lou@garrison:~/cs140/project[01;32mlou@garrison[01;34m ~/cs140/project $[00m b[Kjava Bill
+enter the name of item 1: ipad
+enter the quantity of item 1: 1
+enter the price of item 1: 0.01
+enter the name of item 2: 999   iphone
+enter the quantity of item 2: 999
+enter the price of item 2: 10000.0
+enter the name of item 3: ip pod
+enter the quantity of item 3: 1000
+enter the price of item 3: 0.01
+Input name of item 1: ipad
+Input quantity of item 1: 1
+Input price of item 1: 0.01
+
+Input name of item 2: iphone
+Input quantity of item 2: 999
+Input price of item 2: 10000.0
+
+Input name of item 3: ipod
+Input quantity of item 3: 1000
+Input price of item 3: 0.01
+
+Your bill:
+
+Item                            Quantity     Price          Total
+----                            --------     -----          -----
+ipad                                   1      0.01           0.01
+iphone                               999  10000.00   9,990,000.00
+ipod                                1000      0.01          10.00
+
+SubTotal                                             9,990,010.01
+8.75% sales tax                                        874,125.88
+Total                                               10,864,135.89
+]0;lou@garrison:~/cs140/project[01;32mlou@garrison[01;34m ~/cs140/project $[00m java Bill
+enter the name of item 1: 10  ipad
+enter the quantity of item 1: 1000
+enter the price of item 1: 9999.99
+enter the name of item 2: iphone
+enter the quantity of item 2: 1000
+enter the price of item 2: 10000.0
+enter the name of item 3: ipod
+enter the quantity of item 3: 1
+enter the price of item 3: 1
+Input name of item 1: ipad
+Input quantity of item 1: 1000
+Input price of item 1: 9999.99
+
+Input name of item 2: iphone
+Input quantity of item 2: 1000
+Input price of item 2: 10000.0
+
+Input name of item 3: ipod
+Input quantity of item 3: 1
+Input price of item 3: 1.0
+
+Your bill:
+
+Item                            Quantity     Price          Total
+----                            --------     -----          -----
+ipad                                1000   9999.99   9,999,990.00
+iphone                              1000  10000.00  10,000,000.00
+ipod                                   1      1.00           1.00
+
+SubTotal                                            19,999,991.00
+8.75% sales tax                                      1,749,999.21
+Total                                               21,749,990.21
+]0;lou@garrison:~/cs140/project[01;32mlou@garrison[01;34m ~/cs140/project $[00m B[Kjava Bill
+enter the name of item 1: ipad
+enter the quantity of item 1: 1001
+Invalid quantity, please enter quantity between 0 and 1,000]0;lou@garrison:~/cs140/project[01;32mlou@garrison[01;34m ~/cs140/project $[00m java Bill
+enter the name of item 1: ipad
+enter the quantity of item 1: 1
+enter the price of item 1: 10000.01
+Invalid price, please enter price between 0.0 and 10,000.0
+]0;lou@garrison:~/cs140/project[01;32mlou@garrison[01;34m ~/cs140/project $[00m java Bill
+enter the name of item 1: ipad
+enter the quantity of item 1: 05  -5
+Invalid quantity, please enter quantity between 0 and 1,000]0;lou@garrison:~/cs140/project[01;32mlou@garrison[01;34m ~/cs140/project $[00m java Bill
+enter the name of item 1: ipad
+enter the quantity of item 1: 20000 
+Invalid quantity, please enter quantity between 0 and 1,000]0;lou@garrison:~/cs140/project[01;32mlou@garrison[01;34m ~/cs140/project $[00m java Bill
+enter the name of item 1: ipad
+enter the quantity of item 1: 10
+enter the price of item 1: -5
+Invalid price, please enter price between 0.0 and 10,000.0
+]0;lou@garrison:~/cs140/project[01;32mlou@garrison[01;34m ~/cs140/project $[00m java Bill
+enter the name of item 1: p ipad
+enter the quantity of item 1: 10
+enter the price of item 1: 15000
+Invalid price, please enter price between 0.0 and 10,000.0
+]0;lou@garrison:~/cs140/project[01;32mlou@garrison[01;34m ~/cs140/project $[00m exit
+exit
+
+Script done on Wed 21 Oct 2015 04:25:43 PM PDT

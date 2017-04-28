@@ -1,0 +1,112 @@
+///////////////////////////////////////////////////////////////
+public class DoublyLinkedListInsertionSort<T extends Comparable<? super T>>
+{
+    private int size;
+    private Node firstNode;
+    private Node lastNode;  
+    
+    //-------------------------------------------------------------
+    public DoublyLinkedListInsertionSort()
+    {
+	firstNode = null;       
+	lastNode = null;      // Default Constructor, set everything null
+	size = 0;
+    }
+
+    //-------------------------------------------------------------
+
+    public boolean add(T anEntry)    
+    {   // function to add, will be used in driver program to create the list
+	Node newNode = new Node(anEntry);
+	newNode.next = firstNode;
+	if(firstNode != null)    // avoid NullPointerException
+	    firstNode.prev = newNode;
+	newNode.prev = null;     // newNode become the first, set prev to null
+	firstNode = newNode;     // newNode become firstNode
+	if(lastNode != null)     // avoid NullPointerException
+	    lastNode = lastNode.next;
+	else
+	    lastNode = firstNode;  
+	    // the list has only one node here, so first = last
+	size++;	
+   	return true;
+    }
+
+    //-------------------------------------------------------------
+
+    public void insertionSort()
+    {	
+	assert firstNode != null;   // no meaning to sort if the list is empty
+	T nextToInsert;
+	Node currentNode;
+	if(firstNode.next != null)
+	// no need to sort if the list has only one node
+	    currentNode = firstNode.next;
+	else
+	    currentNode = null;	    
+	while(currentNode != null)   // from the second node to last
+        {
+	    nextToInsert = currentNode.data;
+	    insertInOrder(currentNode.prev, nextToInsert);
+	    currentNode = currentNode.next;	    
+	}		
+    }
+
+    //-------------------------------------------------------------
+
+    public void insertInOrder(Node end, T nextToInsert)
+    {	  
+	Node currentNode = end;  // "end" is the end of the sorted part
+	while((currentNode != null) && (currentNode.data).compareTo(nextToInsert) == 1)		
+	// current data is bigger than the nextToInsert, move current data to next position in the list
+	{
+	    currentNode.next.data = currentNode.data;
+	    currentNode = currentNode.prev; 
+	}       
+	if(currentNode == null)
+	// the situation that the nextToInsert is smaller than the firstNode data
+	{
+	    firstNode.next.data = firstNode.data;
+	    firstNode.data = nextToInsert;
+	}       
+	else
+	    currentNode.next.data = nextToInsert;	       
+    }       
+
+    //-------------------------------------------------------------
+    
+    public void printOut()
+    {
+	// print out the list
+	Node currentNode = firstNode;
+	while(currentNode != null)
+	{
+	    System.out.println(currentNode.data);
+	    currentNode = currentNode.next;
+	}
+    }
+
+    ////////////////////////////////////////////////////////////
+
+    private class Node
+    { 
+	private T data;
+	private Node next;
+	private Node prev;
+	
+	private Node(T dataPortion)
+	{
+	    this(dataPortion, null, null);
+	}
+
+	private Node(T dataPortion, Node nextNode, Node prevNode)
+	{
+	    data = dataPortion;
+	    next = nextNode;
+	    prev = prevNode;
+	}
+    }
+    /////////////////////////////////////////////////////////
+
+}
+///////////////////////////////////////////////////

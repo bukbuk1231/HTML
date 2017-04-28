@@ -1,0 +1,265 @@
+ARRAY DEFAULT CAPACITY = 3 HERE FOR TESTING
+
+What type of queue would you like: 
+1. Dynamic Array FIFO Queue
+2. Doubly Linked List FIFO Queue
+3. Priority Queue
+Your Choice; 1
+What would you like to do:
+1. Add item to queue
+2. Dequeue
+3. Quit
+Your choice: 1
+Enter the assignment title: Math
+Enter the value of the assignment: 20
+Enter the days until due of the assignment: 9
+What would you like to do:
+1. Add item to queue
+2. Dequeue
+3. Quit
+Your choice: 1
+Enter the assignment title: English
+Enter the value of the assignment: 70
+Enter the days until due of the assignment: 2
+What would you like to do:
+1. Add item to queue
+2. Dequeue
+3. Quit
+Your choice: 1
+Enter the assignment title: History
+Enter the value of the assignment: 55
+Enter the days until due of the assignment: 3
+What would you like to do:
+1. Add item to queue
+2. Dequeue
+3. Quit
+Your choice: 1
+Enter the assignment title: Music
+Enter the value of the assignment: 100
+Enter the days until due of the assignment: 8
+What would you like to do:
+1. Add item to queue
+2. Dequeue
+3. Quit
+Your choice: 2
+Removed assignment:
+Title: Math
+Value: 20
+Days Until Due: 9
+What would you like to do:
+1. Add item to queue
+2. Dequeue
+3. Quit
+Your choice: 1
+Enter the assignment title: Chemistry
+Enter the value of the assignment: 90
+Enter the days until due of the assignment: 0
+Already passed due date. You are screwed!
+Try it again: -1
+Already passed due date. You are screwed!
+Try it again: 6
+What would you like to do:
+1. Add item to queue
+2. Dequeue
+3. Quit
+Your choice: 2
+Removed assignment:
+Title: English
+Value: 70
+Days Until Due: 2
+What would you like to do:
+1. Add item to queue
+2. Dequeue
+3. Quit
+Your choice: 2
+Removed assignment:
+Title: History
+Value: 55
+Days Until Due: 3
+What would you like to do:
+1. Add item to queue
+2. Dequeue
+3. Quit
+Your choice: 2
+Removed assignment:
+Title: Music
+Value: 100
+Days Until Due: 8
+What would you like to do:
+1. Add item to queue
+2. Dequeue
+3. Quit
+Your choice: 2
+Removed assignment:
+Title: Chemistry
+Value: 90
+Days Until Due: 6
+What would you like to do:
+1. Add item to queue
+2. Dequeue
+3. Quit
+Your choice: 2
+The queue doesn't contain any entry!
+Exception in thread "main" java.lang.NullPointerException
+	at AssignmentQueueDriver.main(AssignmentQueueDriver.java:64)
+
+
+
+
+What type of queue would you like: 
+1. Dynamic Array FIFO Queue
+2. Doubly Linked List FIFO Queue
+3. Priority Queue
+Your Choice; 2
+What would you like to do:
+1. Add item to queue
+2. Dequeue
+3. Quit
+Your choice: 1
+Enter the assignment title: CS240
+Enter the value of the assignment: 100
+Enter the days until due of the assignment: 0
+Already passed due date. You are screwed!
+Try it again: 1
+What would you like to do:
+1. Add item to queue
+2. Dequeue
+3. Quit
+Your choice: 1
+Enter the assignment title: CS210
+Enter the value of the assignment: 80
+Enter the days until due of the assignment: 3
+What would you like to do:
+1. Add item to queue
+2. Dequeue
+3. Quit
+Your choice: 1
+Enter the assignment title: Economy
+Enter the value of the assignment: 150
+Enter the days until due of the assignment: 5
+What would you like to do:
+1. Add item to queue
+2. Dequeue
+3. Quit
+Your choice: 2
+Removed assignment:
+Title: CS240
+Value: 100
+Days Until Due: 1
+What would you like to do:
+1. Add item to queue
+2. Dequeue
+3. Quit
+Your choice: 2
+Removed assignment:
+Title: CS210
+Value: 80
+Days Until Due: 3
+What would you like to do:
+1. Add item to queue
+2. Dequeue
+3. Quit
+Your choice: 2
+Removed assignment:
+Title: Economy
+Value: 150
+Days Until Due: 5
+What would you like to do:
+1. Add item to queue
+2. Dequeue
+3. Quit
+Your choice: 2
+The queue does not contain any entry!
+Exception in thread "main" java.lang.NullPointerException
+	at DoublyLinkedListQueue$Node.access$300(DoublyLinkedListQueue.java:76)
+	at DoublyLinkedListQueue.dequeue(DoublyLinkedListQueue.java:46)
+	at AssignmentQueueDriver.main(AssignmentQueueDriver.java:64)
+
+
+
+
+What type of queue would you like: 
+1. Dynamic Array FIFO Queue
+2. Doubly Linked List FIFO Queue
+3. Priority Queue
+Your Choice; 3
+What would you like to do:
+1. Add item to queue
+2. Dequeue
+3. Quit
+Your choice: 1
+Enter the assignment title: CS240
+Enter the value of the assignment: 50 
+Enter the days until due of the assignment: 5
+What would you like to do:
+1. Add item to queue
+2. Dequeue
+3. Quit
+Your choice: 1
+Enter the assignment title: Math
+Enter the value of the assignment: 100
+Enter the days until due of the assignment: 2
+What would you like to do:
+1. Add item to queue
+2. Dequeue
+3. Quit
+Your choice: 1
+Enter the assignment title: History
+Enter the value of the assignment: 40
+Enter the days until due of the assignment: 1
+What would you like to do:
+1. Add item to queue
+2. Dequeue
+3. Quit
+Your choice: 1
+Enter the assignment title: PhotoShop
+Enter the value of the assignment: 20
+Enter the days until due of the assignment: 4
+What would you like to do:
+1. Add item to queue
+2. Dequeue
+3. Quit
+Your choice: 2
+Removed assignment:
+Title: Math
+Value: 100
+Days Until Due: 2
+What would you like to do:
+1. Add item to queue
+2. Dequeue
+3. Quit
+Your choice: 2
+Removed assignment:
+Title: History
+Value: 40
+Days Until Due: 1
+What would you like to do:
+1. Add item to queue
+2. Dequeue
+3. Quit
+Your choice: 2
+Removed assignment:
+Title: CS240
+Value: 50
+Days Until Due: 5
+What would you like to do:
+1. Add item to queue
+2. Dequeue
+3. Quit
+Your choice: 2
+Removed assignment:
+Title: PhotoShop
+Value: 20
+Days Until Due: 4
+What would you like to do:
+1. Add item to queue
+2. Dequeue
+3. Quit
+Your choice: 2
+The queue does not contain any entry!
+Exception in thread "main" java.lang.NullPointerException
+	at PriorityQueue$Node.access$100(PriorityQueue.java:95)
+	at PriorityQueue.dequeue(PriorityQueue.java:65)
+	at PriorityQueue.dequeue(PriorityQueue.java:2)
+	at AssignmentQueueDriver.main(AssignmentQueueDriver.java:64)
+

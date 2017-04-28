@@ -1,0 +1,101 @@
+// Lou, Junda
+// CS 141 01
+// Project #1: Graphic Rotation
+//
+
+import java.util.Scanner;
+import java.io.*;
+public class project1
+{
+    public static void main(String[] args) throws IOException
+    {
+	String fileName = args[0];
+	int numRow = getDataRows(fileName);
+	String[][] data = new String[numRow][];
+	data = getDataInSquareArray(fileName, data, numRow);
+	printGraph(data);
+    }    
+    public static int getDataRows(String fileName) throws IOException
+    {
+	int numRow = 0;
+	File fileReadLine = new File(fileName);
+	Scanner inputFileReadLine = new Scanner(fileReadLine);
+	while (inputFileReadLine.hasNext()){ 	
+	    inputFileReadLine.nextLine();
+	    numRow++;                       
+	}
+	inputFileReadLine.close();
+	return numRow;
+    }
+
+    public static String[][] getDataInSquareArray(String fileName, String data[][], int numRow) throws IOException
+	{
+	    int row, col;
+	    String[] line = null;
+	    File file = new File(fileName);
+	    Scanner inputFile = new Scanner(file);
+		for (row = 0; row < numRow; row++) {
+		    if (inputFile.hasNext())
+			data[row] = inputFile.nextLine().split(",");
+		}
+		int rectLength = numRow;
+		int rectWidth = data[0].length;
+		if (rectLength > rectWidth)
+		    rectWidth = rectLength;
+		else
+		    rectLength = rectWidth;
+		int n = rectLength;
+		String[][] squareData = new String[n][n];
+		for (row = 0; row < n; row++){
+		    for (col = 0; col < n; col++){
+			squareData[row][col] = null;
+		    }
+		}
+		// Filling cells contains no data with null
+		for (row = 0; row < numRow; row++){
+		    for (col = 0; col < data[0].length; col++){
+			squareData[row][col] = data[row][col];
+		    }
+		}
+	    return squareData;
+	}
+
+    public static void printGraph(String[][] data)
+    {
+	int row, col;
+	ANSI.clearScreen();
+	ANSI.cursorHome();
+	for (row = 0; row < data.length; row++){
+	    for (col = 0; col < data[row].length; col++){
+		if (data[row][col] != null){
+		ANSI.setTextColor(data[row][col].charAt(1) - '0');
+		ANSI.setBackgroundColor(data[row][col].charAt(2) - '0');
+		System.out.print(data[row][col].charAt(0));
+		ANSI.resetChars();
+		}
+	    }
+	    System.out.println();
+	}
+	try{
+	Thread.sleep(250);
+	} catch (Exception e){
+	}
+
+	data = rotateGraph(data);
+	printGraph(data);
+    }
+
+    public static String[][] rotateGraph(String[][] data)
+    {
+	String tmp;
+	int n = data.length;
+	String[][] newData = new String[n][n];
+	for (int row = 0; row < n; row++){
+	    for (int col = 0; col < n; col++){
+		newData[row][col] = data[n-1-col][row];
+	    }
+	}
+	return newData;
+    }
+}
+    

@@ -1,0 +1,102 @@
+enter the length of array: 5
+enter the #0 entry: 1
+enter the #1 entry: 2
+enter the #2 entry: 3
+enter the #3 entry: 4
+enter the #4 entry: 5
+Select the Sort Method:
+1) Merge Sort
+2)Quick Sort
+Your Choice: 1
+Your sorting result is:
+1
+2
+3
+4
+5
+Your insertion sort result is:
+1
+2
+3
+4
+5
+
+
+
+
+enter the length of array: 5
+enter the #0 entry: 5
+enter the #1 entry: 4
+enter the #2 entry: 3
+enter the #3 entry: 2
+enter the #4 entry: 1
+Select the Sort Method:
+1) Merge Sort
+2)Quick Sort
+Your Choice: 2
+Your sorting result is:
+1
+2
+3
+4
+5
+Your insertion sort result is:
+1
+2
+3
+4
+5
+
+
+enter the length of array: 8
+enter the #0 entry: 7
+enter the #1 entry: 4
+enter the #2 entry: 2
+enter the #3 entry: 9
+enter the #4 entry: 5
+enter the #5 entry: 10
+enter the #6 entry: 6 
+enter the #7 entry: 23
+Select the Sort Method:
+1) Merge Sort
+2)Quick Sort
+Your Choice: 1
+Your sorting result is:
+2
+4
+5
+6
+7
+9
+10
+23
+Your insertion sort result is:
+2
+4
+5
+6
+7
+9
+10
+23
+
+
+
+enter the length of array: 3
+enter the #0 entry: 9
+enter the #1 entry: 9
+enter the #2 entry: 0
+Select the Sort Method:
+1) Merge Sort
+2)Quick Sort
+Your Choice: 2
+Your sorting result is:
+0
+9
+9
+Your insertion sort result is:
+0
+9
+9
+
+

@@ -1,0 +1,38 @@
+public class tmp
+{
+    public static void main(String[] args)
+    {
+	int i = 0, j = 0, y = 0;
+	String[][] tmp = new String[3][3];
+	try {
+	    while (true){
+		try {
+		    while (true) {
+			y = 1/(i-tmp.length);
+			tmp[i][j] = i + " " + j;
+			j++;
+		    }
+		}    
+		catch (ArrayIndexOutOfBoundsException e){
+		    i++;
+		    j=0;
+		}
+	    }
+	}
+	catch (ArithmeticException e){
+	}
+	
+	String b = null;
+	char ch;
+	//try {
+	    ch = b.charAt(0);
+	    //}
+	    System.out.print(ch);
+
+	//	for (i=0;i<3;i++){
+	//  for (j=0;j<3;j++){
+	//	System.out.println(tmp[i][j]);
+	//    }
+	//	}
+    }
+}

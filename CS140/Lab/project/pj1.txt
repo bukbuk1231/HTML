@@ -1,0 +1,62 @@
+Script started on Sun 04 Oct 2015 01:02:36 PM PDT
+]0;lou@garrison:~/cs140/project[01;32mlou@garrison[01;34m ~/cs140/project $[00m pwd
+/user/lou/cs140/project
+]0;lou@garrison:~/cs140/project[01;32mlou@garrison[01;34m ~/cs140/project $[00m cat Pay.java[K[K[K[K[K[K[K[K[K[K[K[Kls [K
+Pay.class  Pay.java  [0m[00;32mpj1.txt[0m
+]0;lou@garrison:~/cs140/project[01;32mlou@garrison[01;34m ~/cs140/project $[00m Pa[K[Kcat Pay.java
+// Junda Lou
+// CS140, section 01
+// Project 1 - Payroll program
+// 10.4.2015
+
+//This program calculates the user's gross pay
+
+import java.util.Scanner;  //to be able to read from the keyboard
+
+public class Pay
+{
+   public static void main(String [] args)
+   {
+
+      //create a Scanner object to read from the keyboard 
+      Scanner keyboard = new Scanner(System.in);
+
+      //identifier declarations
+      double hours;	//number of hours worked
+      double rate;	//hourly pay rate
+      double pay;	//gross pay
+
+      //display prompts and get input
+      System.out.print("How many hours did you work? ");
+      hours = keyboard.nextDouble();
+      System.out.print("How much do you get paid per hour? ");
+      rate = keyboard.nextDouble();
+
+      //calculations
+      if(hours <= 40)
+         pay = hours * rate;
+      else
+         pay = (hours - 40) * (1.5 * rate) + 40 * rate;
+
+      //display results
+      System.out.println("You earned $" + pay);
+   }
+}
+
+]0;lou@garrison:~/cs140/project[01;32mlou@garrison[01;34m ~/cs140/project $[00m javac Pay.java
+]0;lou@garrison:~/cs140/project[01;32mlou@garrison[01;34m ~/cs140/project $[00m java pay[K[K[KPay
+How many hours did you work? 50
+How much do you get paid per hour? 5
+You earned $275.0
+]0;lou@garrison:~/cs140/project[01;32mlou@garrison[01;34m ~/cs140/project $[00m java Pay
+How many hours did you work? 40
+How much do you get paid per hour? 5
+You earned $200.0
+]0;lou@garrison:~/cs140/project[01;32mlou@garrison[01;34m ~/cs140/project $[00m java Pay
+How many hours did you work? 20
+How much do you get paid per hour? 5
+You earned $100.0
+]0;lou@garrison:~/cs140/project[01;32mlou@garrison[01;34m ~/cs140/project $[00m exit
+exit
+
+Script done on Sun 04 Oct 2015 01:04:39 PM PDT

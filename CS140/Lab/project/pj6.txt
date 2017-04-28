@@ -1,0 +1,224 @@
+Script started on Sat 28 Nov 2015 09:02:08 PM PST
+]0;lou@fluffy:~/cs140/project[01;32mlou@fluffy[01;34m ~/cs140/project $[00m pwd
+/user/lou/cs140/project
+]0;lou@fluffy:~/cs140/project[01;32mlou@fluffy[01;34m ~/cs140/project $[00m C[Kls l[K-l
+total 86
+-rw------- 1 lou cpp   923 Oct 17 13:51 Bill
+-rw------- 1 lou cpp  3419 Oct 21 16:15 Bill.class
+-rw-r--r-- 1 lou cpp  3807 Oct 21 16:12 Bill.java
+-rw------- 1 lou cpp  2169 Nov 18 19:42 DisplayDiamond.class
+-rw------- 1 lou cpp  2864 Nov 18 19:39 DisplayDiamond.java
+-rw------- 1 lou cpp  1863 Nov 28 21:00 DriverTest.class
+-rw------- 1 lou cpp  1756 Nov 28 21:00 DriverTest.java
+-rw------- 1 lou cpp  1185 Nov 17 19:47 HollowDiamond.java
+-rw------- 1 lou cpp  1003 Oct  4 13:03 Pay.class
+-rw-r--r-- 1 lou cpp   968 Oct  4 13:00 Pay.java
+-rw------- 1 lou cpp  2931 Nov  9 18:16 SlotMachineSimulation.class
+-rw------- 1 lou cpp  3187 Nov  9 18:15 SlotMachineSimulation.java
+-rw------- 1 lou cpp  1049 Oct 11 22:36 TimeConversionToHMS.class
+-rw------- 1 lou cpp   647 Oct 11 22:30 TimeConversionToHMS.java
+-rw------- 1 lou cpp  1216 Oct 11 22:32 TimeConversionToSecond.class
+-rw------- 1 lou cpp   830 Oct 11 22:00 TimeConversionToSecond.java
+-rw------- 1 lou cpp  2297 Oct  4 13:04 [0m[00;32mpj1.txt[0m
+-rw------- 1 lou cpp  8487 Oct 11 22:41 [00;32mpj2.txt[0m
+-rw------- 1 lou cpp 14122 Oct 21 16:25 [00;32mpj3.txt[0m
+-rw------- 1 lou cpp  8109 Nov  9 18:20 [00;32mpj4.txt[0m
+-rw------- 1 lou cpp  9112 Nov 18 19:45 [00;32mpj5.txt[0m
+-rw------- 1 lou cpp     0 Nov 28 21:02 [00;32mpj6.txt[0m
+]0;lou@fluffy:~/cs140/project[01;32mlou@fluffy[01;34m ~/cs140/project $[00m cat DriverTest.java
+//Junda Lou
+//CS140, section 01
+//Project 6 - Driver License Exam
+//12.3.2015
+
+import java.util.Scanner;
+public class DriverTest
+{
+   public static void main(String[] args)
+   {
+     Scanner kb = new Scanner(System.in);
+     final int testNumber = 20;
+     char[] corAnswer = {'a','a','a','a','a','b','b','b','b','b','c','c','c','c','c','d','d','d','d','d'};
+     String[] answer = new String[testNumber];
+     char[] ch = new char[testNumber];
+     for (int i=0; i<testNumber; i++)
+     {
+        System.out.print("Question" + (i+1) +": ");
+        answer[i] = kb.nextLine().toLowerCase();
+        ch[i] = answer[i].charAt(0);
+     }
+     
+     int numC = gradeExam(corAnswer, ch);
+     int numInc = testNumber - numC;
+     int[] missed = new int[numInc];
+     missed = makeMissedArray(corAnswer, ch, numInc);
+     
+     System.out.println("** Correct answers: " + numC);
+     System.out.println("** Incorrect answers: " + numInc);
+     if (numInc > 5)
+     System.out.println("** You failed the exam.");
+     else
+     System.out.println("** You passed the exam.");
+     System.out.println("You missed the following questions: ");
+     for (int i=0; i<numInc; i++)
+     System.out.print((missed[i]+1) + " ");
+
+   }
+
+
+   public static int gradeExam(char[] correct, char[] student)
+   {
+     int numC = 0;
+     for (int i=0; i<20; i++)
+     {
+        if (correct[i] == student[i])
+        numC++;
+     } 
+     return numC;
+   }
+     
+   public static int[] makeMissedArray(char[] correct, char[] student, int numIncorrect)
+   {
+     int[] missed = new int[numIncorrect];
+     int j=0;
+     for (int i=0; i<20; i++)
+     {
+        if (correct[i] != student[i])
+        {
+           missed[j] = i;
+           j++;
+        }
+     }
+     return missed;
+   }
+}
+]0;lou@fluffy:~/cs140/project[01;32mlou@fluffy[01;34m ~/cs140/project $[00m javac Driverte[K[KTest.java
+]0;lou@fluffy:~/cs140/project[01;32mlou@fluffy[01;34m ~/cs140/project $[00m java DriverTest
+Question1: A q
+Question2: q
+Question3: shai
+Question4: sdoa    hoa
+Question5: Posjd
+Question6: K
+Question7: G
+Question8: K
+Question9: E
+Question10: Long
+Question11: 8
+Question12: PjsP
+Question13: ets
+Question14: l
+Question15: j
+Question16: c a
+Question17: A
+Question18: B
+Question19: BSsa
+Question20: ;
+** Correct answers: 0
+** Incorrect answers: 20
+** You failed the exam.
+You missed the following questions: 
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 ]0;lou@fluffy:~/cs140/project[01;32mlou@fluffy[01;34m ~/cs140/project $[00m java DriverTest
+Question1: A
+Question2: A
+Question3: a
+Question4: als
+Question5: aAa
+Question6: b
+Question7: Ba
+Question8: bsda
+Question9: B
+Question10: B
+Question11: c
+Question12: D
+Question13: c C
+Question14: Cs S140
+Question15: Cj  C
+Question16: A
+Question17: a
+Question18: AAAA
+Question19: a
+Question20: A
+** Correct answers: 14
+** Incorrect answers: 6
+** You failed the exam.
+You missed the following questions: 
+12 16 17 18 19 20 ]0;lou@fluffy:~/cs140/project[01;32mlou@fluffy[01;34m ~/cs140/project $[00m java DriverTest
+Question1: a D
+Question2: d
+Question3: D
+Question4: d
+Question5: Dls
+Question6: B
+Question7: b
+Question8: BB
+Question9: b
+Question10: bbbb
+Question11: C
+Question12: c
+Question13: CCC
+Question14: cCc
+Question15: CC  ccccccccd
+Question16: D
+Question17: d
+Question18: D
+Question19: dd
+Question20: D
+** Correct answers: 15
+** Incorrect answers: 5
+** You passed the exam.
+You missed the following questions: 
+1 2 3 4 5 ]0;lou@fluffy:~/cs140/project[01;32mlou@fluffy[01;34m ~/cs140/project $[00m A[Kjava DriverTest
+Question1: S A
+Question2: sa  A
+Question3: a
+Question4: a
+Question5: A
+Question6: B
+Question7: b
+Question8: b
+Question9: Bbb
+Question10: Bls
+Question11: C
+Question12: Cao
+Question13: Cm m==    cNM
+Question14: c
+Question15: C
+Question16: D
+Question17: sddd
+Question18: S QPRS
+Question19: LS
+Question20: Mk
+** Correct answers: 16
+** Incorrect answers: 4
+** You passed the exam.
+You missed the following questions: 
+17 18 19 20 ]0;lou@fluffy:~/cs140/project[01;32mlou@fluffy[01;34m ~/cs140/project $[00m java DriverTest
+Question1: a
+Question2: a
+Question3: a
+Question4: As
+Question5: a A
+Question6: b
+Question7: B
+Question8: a ba
+Question9: bacd
+Question10: BBB
+Question11: C
+Question12: c
+Question13: c
+Question14: C
+Question15: c
+Question16: D
+Question17: d
+Question18: D
+Question19: d
+Question20: DDDdddd
+** Correct answers: 20
+** Incorrect answers: 0
+** You passed the exam.
+You missed the following questions: 
+]0;lou@fluffy:~/cs140/project[01;32mlou@fluffy[01;34m ~/cs140/project $[00m exit
+exit
+
+Script done on Sat 28 Nov 2015 09:09:40 PM PST

@@ -1,0 +1,10 @@
+Input:
+A*B+C/D
+A*(B+C)/D
+A*(B+C/D)
+AB*CD/+
+ABC+*D/
+ABCD/+*
++*AB/CD
+/*A+BCD
+*A+B/CD

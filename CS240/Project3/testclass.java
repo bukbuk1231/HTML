@@ -1,0 +1,10 @@
+public class testclass
+{
+
+    public static <T extends (? super T)> int printout(T[] array)
+    {						
+	
+	for(int i = 0; i < array.length; i++)
+	    System.out.println(array[i]);
+    }
+}
