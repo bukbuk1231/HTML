@@ -1,0 +1,43 @@
+import java.util.Scanner;
+public class test
+{
+    public static void main(String[] args)
+    {
+	Integer[] array = new Integer[5];
+	for(int i = 0; i < 5; i++)
+	    array[i] = i + 1;
+	array = updateArrayInsert(array, 6);
+	array = updateArrayDelete(array, 6);
+	for(int i = 0; i < array.length; i++)
+	    System.out.println(array[i]);
+    }
+    public static Integer[] updateArrayInsert(Integer[] values, int newValue)
+    {
+	//keep use values[] for future use of Predeccessor and Successor  ***	
+	Integer[] tmp = new Integer[values.length + 1];
+	for(int i = 0; i < values.length; i++)
+	    tmp[i] = values[i];
+	tmp[values.length] = newValue;
+	values = tmp;
+	return values;
+    }   
+
+    public static Integer[] updateArrayDelete(Integer[] values, int oldValue)
+    {
+	Integer[] tmp = new Integer[values.length - 1];
+	for(int i = 0; i < values.length; i++)
+	{
+	    if(values[i] == oldValue)
+	    {
+		values[i] = null;	
+		if(i != values.length - 1)
+		    values[i] = values[values.length - 1];
+		break;
+	    }
+	}    // keep values updated, for use of Prede and Succe
+	for(int i = 0; i < tmp.length; i++)
+	    tmp[i] = values[i];	
+	values = tmp;	
+	return values;	
+    }
+}

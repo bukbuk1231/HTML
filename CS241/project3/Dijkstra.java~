@@ -1,0 +1,112 @@
+import java.util.*;
+
+public class Dijkstra<T>
+{
+    DirectedGraph graph;
+    Set visited;
+    Set unvisited;
+    int[] relax;
+    int[] prev;
+    
+    public Dijkstra(DirectedGraph graphData)
+    {
+	graph = graphData;
+	visited = new HashSet<T>();
+	unvisited = new HashSet<T>();
+	for(int i = 0; i < graph.getSize(); i++)
+	    unvisited.add(graph.getLabel(i));
+	relax = new int[graph.getSize()];
+	prev = new int[graph.getSize()];
+	for(int i = 0; i < relax.length; i++)	
+	{  
+	    relax[i] = Integer.MAX_VALUE;
+	    prev[i] = -1;
+	}
+    }
+     
+    public int[] getMinRoute(int source, int target)
+    {
+	minRoute(source, target);
+	int count = 0, current = target;
+	while(current != source && prev[current] != -1)
+        {
+	    current = prev[current];
+	    count++;
+	}
+	current = target;
+	int[] route = new int[count + 1];	
+	for(int i = route.length - 1; i >= 0; i--)
+	{
+	    route[i] = current;
+	    current = prev[current];
+	}
+	return route;    
+    }
+
+    public int getMinDistance(int source, int target)
+    {
+	int distance = 0;
+	int[] route = getMinRoute(source, target);
+	for(int i = 0; i < route.length - 1; i++)
+	    distance += graph.getWeight(route[i], route[i + 1]);
+	return distance;
+    }
+
+    private void minRoute(int source, int target)
+    {
+	boolean found = false;
+	int node = source;
+	relax[source] = 0;
+	prev[source] = -1;
+	while(!found)
+	{
+	    node = findNextNode(node);
+	    if(node == target)
+		found = true;	
+	    visited.add(graph.getLabel(node));
+	    relaxEdge(node);
+	    unvisited.remove(graph.getLabel(node));
+	    if(unvisited.isEmpty()) {
+		System.out.println("No route");
+		break;
+	    }
+	    //System.out.println("1");
+	}
+    }
+    
+    private int findNextNode(int node)
+    {
+	int min = Integer.MAX_VALUE;
+	for(int i = 0; i < relax.length; i++)
+	    if(relax[i] < min && unvisited.contains(graph.getLabel(i)) && relax[i] > 0)  
+		min = relax[i];
+	for(int i = 0; i < relax.length; i++)
+	    if(min == relax[i] && min != Integer.MAX_VALUE && unvisited.contains(graph.getLabel(i)))
+		node = i;	    
+	return node;
+    }
+    
+    private void relaxEdge(int current)
+    {	
+	for(int i = 0; i < relax.length; i++) {
+	    if((graph.getEdge())[current][i] && !visited.contains(graph.getLabel(i))) {
+		if(relax[i] == Integer.MAX_VALUE || (relax[current] + graph.getWeight(current, i)) < relax[i]) {
+		    relax[i] = graph.getWeight(current, i) + relax[current];
+		    prev[i] = current;
+		}
+	    }
+	}
+    }
+
+    public void reset()
+    {
+	visited.clear();
+	unvisited.clear();
+	for(int i = 0; i < graph.getSize(); i++)
+	    unvisited.add(graph.getLabel(i));
+	for(int i = 0; i < relax.length; i++) {	
+	    relax[i] = Integer.MAX_VALUE; 
+	    prev[i] = -1;
+	}
+    }
+}

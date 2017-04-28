@@ -1,0 +1,28 @@
+Please enter the number of output per line: 5
+Please enter 20 integers(one per line):
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+Here are the 20 integers in the array in reverse order:
+20 19 18 17 16 
+15 14 13 12 11 
+10 9 8 7 6 
+5 4 3 2 1 
+

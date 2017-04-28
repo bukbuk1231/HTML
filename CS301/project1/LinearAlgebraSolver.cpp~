@@ -1,0 +1,64 @@
+// LinearAlgebraSolver.cpp : Defines the entry point for the console application.
+//
+
+#include <iostream>
+#include <string>
+#include <fstream>
+using namespace std;
+
+int main()
+{
+	int choice = 0;
+	cout << "1. Enter the coefficients and vectors of the equation" << endl;
+	cout << "2. Enter the file name that contains the matrix data" << endl;
+	cout << "You choose: ";
+	cin >> choice;
+	cin.ignore(999999, '\n');
+	if (choice == 1)
+	{
+		int size = 0;
+		cout << "Enter the size of the matrix: ";
+		cin >> size;
+		int **matrix = new int*[size];
+		for (int i = 0; i < size; i++)
+			matrix[i] = new int[size];
+		for (int i = 0; i < size; i++)
+		{
+			for (int j = 0; j < size; j++)
+			{
+				cout << "Enter the (" << i << "," << j << ") element in the matrix: ";
+				cin >> matrix[i][j];
+			}
+		}
+	}
+	else
+	{
+		int countRow = 0, countCol = 0;
+		ifstream matrix_data;
+		string matrix_data_file, dataLine;
+		cout << "Please enter the file name: ";
+		getline(cin, matrix_data_file);
+		matrix_data.open(matrix_data_file.c_str());
+		while (getline(matrix_data, dataLine))
+		{
+			for (int i = 0; i < dataLine.length(); i++)
+			{
+				if (dataLine[i] != ' ' && countRow == 0)
+					countCol++;
+			}
+			countRow++;
+		}
+
+		int **matrix = new int*[countRow];
+		for (int i = 0; i < countRow; i++)
+			matrix[i] = new int[countCol];
+		matrix_data.close();
+		ifstream read_matrix_data;
+		read_matrix_data.open(matrix_data_file.c_str());
+		for (int i = 0; i < countRow; i++)
+			for (int j = 0; j < countCol; j++)
+				read_matrix_data >> matrix[i][j];
+		//solveMatrix(matrix);
+	}
+    return 0;
+}
