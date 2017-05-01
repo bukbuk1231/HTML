@@ -1,0 +1,15 @@
+<html>
+<head>
+<Title>Title of page</title>
+</head>
+<body>
+<h1 align = "center">This is a head</h1>
+This is test homepage. <b>This text is bold</b>
+<p>This is a paragraph</p>
+<hr>
+<p>This is another para&lt<br>
+This <br> is a para<br>graph with line breaks
+<a href = "http://www.baidu.com" title = "SB baidu" target = _blank>BAIDU</a>
+<!-- this is a comment -->
+</body>
+</html>
