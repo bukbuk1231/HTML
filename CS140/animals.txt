@@ -1,4 +1,0 @@
-Kangaroo
-Mouse
-etc
-^d
