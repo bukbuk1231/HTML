@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <Title>主页</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/database.css">
+    <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+    <script>
+
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyDZ5jykCm-0gcM1cVm77nL4GTLXFrOFWuo",
+            authDomain: "accident-database.firebaseapp.com",
+            databaseURL: "https://accident-database.firebaseio.com",
+            projectId: "accident-database",
+            storageBucket: "accident-database.appspot.com",
+            messagingSenderId: "856483069043"
+        };
+        firebase.initializeApp(config);
+
+        let email = "test@test.com";
+        let pass = "tester";
+
+        firebase.auth().signInAndRetrieveDataWithEmailAndPassword(email, pass)
+            .catch(function (error) {
+                // Handle Errors here.
+                var errorCode = error.code;
+                var errorMessage = error.message;
+                if (errorCode === 'auth/wrong-password') {
+                    alert('Wrong password.');
+                } else {
+                    alert(errorMessage);
+                }
+                location.assign("error.html");
+                console.log(error);
+            });
+        
+        var database = firebase.database().ref();
+        var ref = firebase.database().ref();
+        ref.once("value")
+            .then(function(snapshot) {
+               var data = snapshot.toJSON();
+               console.log(Object.keys(data).length);
+                var tableData = " <tr><th>id</th><th>事故发生地点</th><th>事故发生时间</th><th>事故名称</th><th>事故类型</th><th>死亡人数</th></tr>";
+                for(var i = 0; i < Object.keys(data).length; i++) {
+                    tableData += "<tr>";
+                    //console.log(tableData);
+                    for(var key in data[i]) {
+                        tableData = tableData + "<td>" + data[i][key] + "</td>";
+                    }
+                    tableData = tableData + "</tr>";
+                }
+                
+                document.getElementById("table").innerHTML = tableData;
+            });
+    </script>
+</head>
+
+<body>
+
+    <div id="div">
+        <table id="table">
+        </table>
+    </div>
+    
+    
+
+</body>

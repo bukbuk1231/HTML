@@ -1,0 +1,55 @@
+a {
+    color: antiquewhite;
+    text-decoration: none;
+}
+
+a:visited { 
+    color:darkturquoise;
+}
+
+a:hover {
+    color:lightgreen;
+}
+
+#date {
+    font-weight: bold;
+    color: salmon;
+}
+
+body {
+    background: url("image/5574957-tokyo-skyline-wallpapers.jpg") no-repeat fixed;
+    background-size: cover;
+    color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 18px;
+    margin: 0;
+    padding: 0;
+}
+
+.bookmark {
+    list-style-type: none;
+    text-align: center;
+    font-size: 18px;
+    padding: 0;
+}
+
+.listTitle {
+    text-align: center;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid lime;
+    margin: 40px 0;
+}
+
+#btt {
+    border: 1px solid greenyellow;
+    padding: 3px;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    border-radius: 12px;
+    color: bisque;
+    font-weight: bold;
+}

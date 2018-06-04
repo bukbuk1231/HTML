@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Junda Lou">
+        <meta name="discription" content="This is a custom start page for testing">
+        <title>My Custom Start Page</title>
+        <link rel="icon" href="image/ef36d7bd74dac80654af8d7ae528bdf9.jpeg">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" type="text/css" href="myCss.css">
+        <script src="myJS.js"></script>
+    </head>
+    <body>
+        <div>
+            <h3 id="date"></h3>
+            <script>
+                var date = new Date();
+                document.getElementById("date").innerHTML = date.toDateString();
+                document.getElementById("date").style.textAlign = "center";
+            </script>
+        </div>
+        <div>
+            <h4 class="listTitle">常用网站</h4>
+            <ul class="bookmark">
+                <li><a href="https://www.google.com" target="_blank">Google</a></li>
+                <li><a href="https://www.baidu.com" target="_blank">度娘</a></li>
+                <li><a href="https://acg18.us/" target="_blank">幻想次元</a></li>
+                <li><a href="https://hacg.red" target="_blank">琉璃神社</a></li>
+                <li><a href="https://www.galacg.me/" target="_blank">绅士仓库</a></li>
+                <li><a href="https://erokuni.net/" target="_blank">Erokuni</a></li>
+                <li><a href="https://ht.acgbuster.com/" target="_blank">面码busters</a></li>
+                <li><a href="https://nhentai.net/" target="_blank">nHentai</a></li>
+                <li><a href="https://www.bilibili.com/" target="_blank">哔哩哔哩</a></li>
+                <li><a href="https://www.amazon.com/" target="_blank">Amazon</a></li> 
+            </ul>
+        </div>
+        <div>
+            <hr>
+            <h4 class="listTitle">A list of bookmarks that is good for studying HTML</h4>
+            <ul class="bookmark"> 
+                <li><a href="https://www.w3schools.com/tags/ref_attributes.asp" target="_blank">HTML reference</a></li>
+                <li><a href="https://www.w3schools.com/html/default.asp" target="_blank">HTML tutorial</a></li>
+                <li><a href="https://www.w3schools.com/cssref/default.asp" target="_blank">CSS reference</a></li>
+                <li><a href="https://www.w3schools.com/css/default.asp" target="_blank">CSS tutorial</a></li>
+                <li><a href="https://www.w3schools.com/jsref/default.asp" target="_blank">JavaScript reference</a></li>
+                <li><a href="https://www.w3schools.com/js/default.asp" target="_blank">JavaScript tutorial</a></li>
+                <li><a href="https://www.w3schools.com/colors/colors_names.asp" target="_blank">RGB reference and Mixer</a></li>
+            </ul>
+        </div>
+        <div>
+            <hr>
+            <h4 class="listTitle">学校相关</h4>
+            <ul class="bookmark">
+                <li><a href="https://www.cpp.edu/~broncodirect/" target="_blank">BroncoDirect</a></li>
+                <li><a href="https://blackboard.cpp.edu/" target="_blank">BlackBoard</a></li>
+            </ul>
+        </div>
+        <div>
+            <a href="#date" id="btt">Back to Top</a>
+        </div>
+
+    </body>
+
+</html>

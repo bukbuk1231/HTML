@@ -1,0 +1,198 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>登录</title>
+	<link rel="stylesheet" href="css/login.css">
+        <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+        <script>
+        
+            // Initialize Firebase
+            var config = {
+                apiKey: "AIzaSyDZ5jykCm-0gcM1cVm77nL4GTLXFrOFWuo",
+                authDomain: "accident-database.firebaseapp.com",
+                databaseURL: "https://accident-database.firebaseio.com",
+                projectId: "accident-database",
+                storageBucket: "accident-database.appspot.com",
+                messagingSenderId: "856483069043"
+            };
+            firebase.initializeApp(config);
+        
+            function signin() {
+        
+                let email = document.getElementById("user").value;
+                let pass = document.getElementById("pas").value;
+                var hasError = false;
+        
+                firebase.auth().signInAndRetrieveDataWithEmailAndPassword(email, pass)
+                    .catch(function(error) {
+                        // Handle Errors here.
+                        hasError = true;
+                        var errorCode = error.code;
+                        var errorMessage = error.message;
+                        if (errorCode === 'auth/wrong-password') {
+                            alert('Wrong password.');
+                        } else {
+                            alert(errorMessage);
+                        }
+                        location.assign("error.html");
+                        console.log(error);
+                    });
+                if(!hasError)
+                    location.assign("database.html");
+            }
+            
+        </script>
+</head>
+<body>
+	<main>
+	    <h3>login to accidentdatabase</h3>
+	    <div id="Elm">
+	       <input id="user" type="text" value="" name="user" placeholder="请输入你的用户名">
+	    </div>
+	    <div id="Elm">
+	       <input id="pas" type="password" value="" placeholder="请输入你的密码">
+	    </div>
+	    <div id="Elm">
+	    	<button onclick="signin()">提交</button>
+	    </div>
+	</main>
+   <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            overflow: hidden;
+        }
+
+        #myCanvas {
+            border: 1px;
+            background-color: lavenderblush;
+        }
+
+        .a {
+            text-align: center;
+            font-weight: bold;
+            font-size: 17px;
+            color: #787878;
+            font-family: "Comic Sans MS", cursive;
+        }
+
+        .tou {
+            font-size: 14px;
+            text-align: center;
+            color: #787878;
+            font-family: "Comic Sans MS", cursive;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="myCanvas"></canvas>
+</body>
+<script type="text/javascript">
+    //获取窗口宽高		
+    var w = window.innerWidth;
+    var h = window.innerHeight;
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d"); 
+    //设置画布宽高与窗口宽高一样		
+    canvas.width = w;
+    canvas.height = h; 
+    //随机数函数		
+    function fnRandom(min, max) {
+        return parseInt((max - min) * Math.random() + min + 1)
+    }
+
+    function Round() {
+        this.r = fnRandom(10, 30);  
+        this.diam = this.r * 2; 
+        //随机位置			
+        var x = fnRandom(0, canvas.width - this.r);
+        this.x = x < this.r ? this.r : x;
+        var y = fnRandom(0, canvas.height - this.r);
+        this.y = y < this.r ? this.r : y 
+        //随机速度			
+        var speed = fnRandom(2, 4) / 10
+        this.speedX = fnRandom(0, 4) > 2 ? speed : -speed;
+        this.speedY = fnRandom(0, 4) > 2 ? speed : -speed;
+         //颜色			
+        this.color = "orange";
+    }
+    Round.prototype.draw = function () { 
+        //绘制函数			
+        ctx.fillStyle = this.color;
+        ctx.beginPath()
+        ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2, true);
+        ctx.closePath();
+        ctx.fill();
+    }
+    Round.prototype.move = function () {
+        this.x += this.speedX;
+        if (this.x > canvas.width - this.r) { //				
+            this.speedX *= -1;
+            this.x = this.r
+        } else if (this.x < this.r) {
+            this.x = canvas.width - this.r
+        }
+        this.y += this.speedY;
+        if (this.y > canvas.height - this.r) { //				
+            this.speedY *= -1;
+            this.y = this.r
+        } else if (this.y < this.r) {
+            this.y = canvas.height - this.r
+        }
+    } 
+    //使用Round		
+    var allRound = [];
+
+    function initRound() { 
+        //初始化30个圆形对象,放到数组中			
+        for (var i = 0; i < 30; i++) {
+            var obj = new Round();
+            obj.draw();
+            obj.move();
+            allRound.push(obj);
+        }
+    }
+    initRound();
+    var dxdy = []
+
+    function roundMove() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height); 
+        //遍历所有的圆形对象,让对象自己重绘,移动			
+        for (var i = 0; i < allRound.length; i++) {
+            var round = allRound[i];
+            round.draw();
+            round.move();
+            dxdy[i] = {
+                dx: round.x,
+                dy: round.y
+            };
+            var dx = dxdy[i].dx;
+            var dy = dxdy[i].dy;
+            for (var j = 0; j < i; j++) {
+                var sx = dxdy[j].dx;
+                var sy = dxdy[j].dy;
+                l = Math.sqrt((dx - sx) * (dx - sx) + (dy - sy) * (dy - sy));
+                var C = 1 / l * 7 - 0.009;
+                var o = C > 0.03 ? 0.03 : C;
+                ctx.strokeStyle = 'rgba(0,0,0,' + o + ')'
+                ctx.beginPath() 
+                ctx.lineWidth = 2;
+                ctx.moveTo(dxdy[i].dx, dxdy[i].dy) 
+                ctx.lineTo(dxdy[j].dx, dxdy[j].dy);
+                ctx.closePath() 
+                ctx.stroke()
+            }
+        }
+        window.requestAnimationFrame(roundMove)
+    }
+    roundMove();
+</script>
+
+
+</body>
+</html>
